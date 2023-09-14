@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>my page</title>
+     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+     <style>*{
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: 'poppins',sans-serif;
+     }
+     body{
+          color: #ededed;
+          background-color:rgb(9, 9, 47) ;
+     }
+     .header{
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          padding: 20px 10px;
+          background: rgba(8, 34, 42, 0.946);
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          z-index: 100;
+     }
+     .logo{
+          position: relative;
+          font-size: 35px;
+          color: #fff;
+          text-decoration: none;
+          font-weight: 600;
+          cursor: default;
+          opacity: 0;
+          animation: slideTop .5s ease forwards;
+     
+     }
+     .navbar a{
+          display: inline-block;
+          font-size: 25px;
+          color: #fff;
+          text-decoration: none;
+          font-weight: 500;
+          margin-left: 35px;
+          transition: .3s;
+          opacity: 0;
+          animation: slideTop .5s ease forwards;
+          font-family: cursive;
+     }
+     .navbar a:hover{
+          color: aqua;
+     }
+     .navbar a::after{
+          content:"";
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          height: 3px;
+          width: 0px;
+          background-color: #0ef;
+          transition: all ease 1s;
+     }
+     .navbar a:hover::after{
+          width: 100%;
+     }
+     .home{
+          position: relative;
+          width: 100%;
+          justify-content: space-between;
+          height: 100vh;
+          background: url(xx.jpg)no-repeat;
+          background-size: cover;
+          background-position: center;
+          display: flex;
+          align-items: center;
+          padding: 70px 10px 0;
+     }
+     .home-content{
+          max-width: 600px;
+          margin-left: 30px;
+     }
+     .home-content h3{
+          font-size: 32px;
+          font-weight: 700;
+          opacity: 0;
+          animation: slideTop .5s ease forwards;
+          animation-delay: .7s;
+          margin-top: 20px;
+     }
+     .home-content h3:nth-last-of-type(2){
+          margin-bottom: 0px;
+     }
+     .home-content h3 span{
+          color: #0ef;
+          
+     }
+     .home-content h1{
+          font-size: 56px;
+          font-weight: 700;
+          margin: -3px 0;
+          opacity: 0;
+          animation: slideRight .5s ease forwards;
+          animation-delay: .2s;
+          margin-top: 0px;
+     }
+     .home-content p{
+          font-size: 20px;
+          font-size: 25px;
+          opacity: 0;
+          animation: slideRight .1s ease forwards;
+          animation-delay: .7s;
+          margin-top: 20px;
+     
+     }
+     .home-sci a{
+          justify-content: center;
+          align-items: center;
+          width: 70px;
+          height: 60px;
+          background: transparent;
+          border: 2px solid #0ef;
+          border-radius: 10px;
+          color: #0ef;
+          font-size: 30px;
+          text-decoration: none;
+          margin: 100px 15px 10px 10px;
+          transition: .5s ease;
+          opacity: 1;
+          animation:slideLeft is ease forwards;
+          animation-delay: calc(.7s * var(--i));
+     }
+     .home-sci{
+          margin-top: 20px;
+     }
+     .home-sci a:hover{
+          background: rgb(13, 145, 155);
+          color: rgb(16, 218, 236);
+          box-shadow: 0 0 40px rgb(335, 398, 33182);
+     }
+     .btn-box{
+          display: inline-block;
+          padding: 12px 28px;
+          background: rgb(199, 241, 244);
+          border-radius: 40px;
+          font-size: 16px;
+          color: cadetblue;
+          letter-spacing: 1px;
+          text-decoration: none;
+          font-weight: 600;
+          margin-top: 40px;
+          opacity: 1;
+          animation: slidebottom .5s ease forwards;
+          animation-delay: .7s;
+          box-shadow: 0 0 5px #0ef,
+          0 0 25px #0ef;
+     }
+     .btn-box:hover{
+          box-shadow:  0 05px cyan,
+          0 0 25px cyan,0 0 50px cyan,
+          0 0 100px cyan,0 0 200px cyan;
+     }
+     .about{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          gap: 2rem;
+          padding-bottom: 6rem;
+     }
+     .about{
+          display:grid;
+          grid-template-columns: repeat(2,1fr);
+          align-items: center;
+          gap: 1.5rem;
+          margin-bottom: -50px;
+     }
+     .about-img img{
+          padding: 20%;
+          max-width: 630px;
+          width: 100%;
+          border-radius: 300px;
+          filter:blur(0px);
+          transition: all ease 1s;
+     }
+     .about-img img:hover{
+          scale: 1.1;
+     }
+     .about-text h2{
+          font-size: 60px;
+          margin-top: 170px;
+     }
+     .about-text h2 span{
+          color: #0ef;
+     }
+     .about-text h4{
+          font-size: 29px;
+          font-weight: 600;
+          color: #fff;
+          line-height: 1.7;
+          margin: 15px 0 30px;
+     }
+     .about-text p{
+          color: aliceblue;
+          font-size: 20px;
+          line-height: 1.4;
+          margin-bottom: 3rem;
+     }
+     
+     #services{
+          color: aliceblue;
+          font-size: 20px;
+          line-height: 1.8;
+          margin-bottom: 4rem;
+           margin: 100px 15px 10px 50px;
+     }
+     .sub-title{
+          text-align: center;
+          font-size: 60px;
+          padding-bottom: 70px;
+     }
+     .sub-title span{
+          color: #0ef;
+     }
+     .container{
+          padding: 90px;
+          justify-content: center;
+          margin-bottom: 60px;
+     }
+     
+     .services-list{
+          display: grid;
+          grid-template-columns: repeat(auto-fit,minmax(259px,1fr));
+          grid-gap:40px;
+          margin-top: -0px;
+          margin-left:60px;
+          
+     }
+     .services-list div{
+          background-color: transparent;
+          padding: 40px;
+          font-size: 13px;
+          font-weight: 13px;
+          border-right: 10px;
+          border-radius: 20px;
+          transition: background 0.5s,transform 0.5s;
+          box-shadow: 1px 1px 20px #012290f7,
+                       1px 1px 40px #0053b8f7
+     }
+     .services-list div i{
+          font-size: 50px;
+          margin-bottom: 30px;
+     }
+     .services-list div h2{
+          font-size: 30px;
+          font-weight: 500;
+          margin-bottom: 15px;
+     }
+     .services-list div a{
+          text-decoration: none;
+          color: #000000;
+          font-size: 12px;
+          margin-top: 20px;
+          display: inline-block;
+     }
+     .read{
+          display: inline-block;
+          padding: 12px 28px;
+          background: #0ef;
+          border-radius: 40px;
+          font-size: 16px;
+          color: #081b29;
+          letter-spacing: 1px;
+          text-decoration: none;
+          font-weight: 600;
+          opacity: 0;
+          animation: slideTop .5s ease forwards;
+          animation-delay: .1s;
+          box-shadow: 0 0 5px #0ef,
+          0 0 25px #0ef;
+     }
+     .read:hover{
+          box-shadow:  0 05px cyan,
+          0 0 25px cyan,0 0 50px cyan,
+          0 0 100px cyan,0 0 200px cyan;
+     }
+     .services-list div:hover{
+          transform: translateY(-10px);
+     }
+     
+     section{
+          display: flex;
+          flex-wrap: wrap;
+     }
+     .container1{
+          width: 600px;
+          height: 300px;
+          padding: 75px 90px;
+          margin-left: 120px;
+     }
+      
+     
+     .heading1{
+          text-align: center;
+          text-decoration: underline;
+          text-underline-offset: 10px;
+          text-decoration-thickness: 5px;
+          margin-bottom: 50px;
+     }
+     .bar{
+          font-size: 23px;
+     }
+     
+     .Technical-bars.bar{
+          margin-top: 40px 0;
+     }
+     .Technical-bars .bar:first-child{
+          margin-top: 0;
+     }
+     .Technical-bars .bar:last-child{
+          margin-bottom: 0;
+     }
+     .Technical-bars .bar .info{
+          margin-bottom: 5px;
+     }
+     .Technical-bars .bar .info span{
+          font-size: 17px;
+          font-weight: 400;
+          animation: showText 0.5s is linear forwards;
+          opacity: 1;
+     }
+     .Technical-bars .bar .progress-line{
+          position: relative;
+          border-radius: 10px;
+          width: 100%;
+          height: 5px;
+          background-color: #000000;
+          animation: animate is cubic-bezier(1,0,0,5,1) forwards;
+          transform: scaleX(1);
+          transform-origin: left;
+          margin-bottom: 35px;
+     }
+     
+     @keyframes animate{
+          100%{
+               transform: scaleX(1);
+          }
+     }
+     
+     .Technical-bars .bar .progress-line span{
+          height: 100%;
+          background-color: #0ef;
+          position: absolute;
+          border-radius: 10px;
+          animation: animate is is cubic-bezier(1,0,0,5,1)forwards;
+          transform: scaleX(1);
+          transform-origin: left;
+     }
+     .progress-line.html span{
+          width: 90%;
+     }
+     .progress-line.css span{
+          width: 70%;
+     }
+     .progress-line.Javascript span{
+          width: 40%;
+     }
+     .progress-line.cpp span{
+          width: 50%;
+     }
+     .progress-line.html span::after{
+          position: absolute;
+          padding: 1px 8px;
+          background-color: #000;
+          color: #fff;
+          font-size: 12px;
+          border-radius: 3px;
+          top: -28px;
+          right: -20px;
+          animation: showText 0.5s 1.5s linear forwards;
+          opacity: 0;
+     }
+     .progress-line .html span::after{
+          content: "";
+     }
+     .progress-line.css span::after{
+          content: "";
+     }
+     .progress-line.Javascript span::after{
+          content: "";
+     }
+     .progress-line.cpp span::after{
+          content: "";
+     }
+     .progress-line span::before{
+          content: "";
+          position: absolute;
+          width: 0;
+          height:0;
+          border: 7px solid transparent;
+          border-bottom-width:0px ;
+          border-right-width:0px ;
+          border-top-color:#ec90f8 ;
+          top: -10px;
+          right: 0;
+          animation: showText 0.5s 1.5s linear forwards;
+          opacity: 0;
+     }
+     
+     @keyframes showText{
+          100%{
+               opacity:1;
+          }
+     }
+     .sub-title{
+          margin-top: 50px;
+     }
+      #Skills{
+          align-items: center;
+          margin-left: 300px;
+          margin-top: -30px;
+          border-radius: 80px;
+          height: 550px;
+          background-color: transparent;
+          padding: 40px;
+          font-size: 13px;
+          font-weight: 33px;
+          border-right: 10px;
+          border-radius: 20px;
+          transition: background 0.5s,transform 0.5s;
+          box-shadow: 1px 1px 20px #012290f7,
+                       1px 1px 40px #d50c88f7
+     
+      }
+      #Skills:hover{
+          transform: translateY(-10px);
+      }
+      .contact{
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          align-items: center;
+          gap: 3rem;
+          padding-left:300px ;
+          margin-top: 90px;
+          
+      }
+      .contact-text h2{
+          font-size: 55px;
+          line-height: 1;
+          text-align: center;
+          padding-left: 200px;
+      }
+     .contact-text h2 span{
+          color: #0ef;
+     }
+     .contact-text h4{
+          margin: 15px 0;
+          color: rgb(228, 228, 228);
+          font-size: 25px;
+          font-weight: 600;
+     }
+     .contact-text p{
+          color: rgb(177, 177, 177);
+          font-size: 23px;
+          line-height: 30px;
+          margin-bottom: 1rem;
+          font-family: cursive;
+     }
+     .contact-list{
+          margin-bottom: 3rem;
+     }
+     .contact-list li{
+          margin-bottom: 10px;
+          display: block;
+     } 
+     .contact-list li{
+          margin-bottom: 10px;
+          display: block;
+     } 
+     .contact-list i{
+          display: inline-block;
+          color: #0ef;
+          font-size: 20px;
+          font-weight: 600;
+          transition: all .40s ease;
+     }
+     .contact-list li a:hover{
+          transform: scale(1.01) translateY(-5px);
+          color: #0ef;
+     }
+     .contact-icons i{
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          width: 40px;
+          height: 40px;
+          background: transparent;
+          border: 2px solid #0ef;
+          border-radius: 50%;
+          font-size: 20px;
+          color:#0ef;
+          text-decoration: none;
+          margin: 30px 15px 30px 0;
+          transition: .5s ease;
+          opacity: 1;
+          animation: slideLeft is ease forwards;
+          animation-delay: calc(.2s * var(--i));
+     }
+     .contact-icons {
+          margin-top: -30px;
+     }
+     .contact-icons i:hover{
+          background: #0ef;
+          color: #000;
+          box-shadow: 0 0 20px #0ef;
+     }
+     .lest-text p{
+          width: 100%;
+          text-align: center;
+          padding: 25px 0;
+          font-weight: 300;
+          margin-top: 20px;
+          font-family: cursive;
+          margin-left: 330px;
+          font-size: 25px;
+          color: rgb(230, 144, 7);
+     }
+     .top{
+          position: fixed;
+          bottom: 2.1rem;
+          left: 2,1rem;
+          margin-left: 20px;
+     }
+     .top i{
+          color: #150e0e;
+          background: #0ef;
+          font-size: 25px;
+          padding: 5px;
+          border-radius: 0.5rem;
+          text-shadow: #d80d0d(230, 144, 7) ;
+          
+     }
+       
+     
+     
+     
+     
+     
+      
+     @keyframes slideTop{
+          0%{
+               transform: translateY(-100px);
+               opacity: 0;
+          }
+          100%{
+               transform: translateY(0px);
+               opacity: 1;
+          }
+     }
+     @keyframes slideBottom{
+          0%{
+               transform: translateY(100px);
+               opacity: 0;
+          }
+          100%{
+               transform: translateY(0px);
+               opacity: 1;
+          }
+     }
+     @keyframes slideRight{
+          0%{
+               transform: translateZ(100px);
+               opacity: 0;
+          }
+          100%{
+               transform: translateZ(0px);
+               opacity: 1;
+          }
+     }
+     
+     @keyframes slideLeft{
+          0%{
+               transform: translateZ(100px);
+               opacity: 0;
+          }
+          100%{
+               transform: translateZ(0px);
+               opacity: 1;
+          }
+     }
+     </style>
+     
+
+</head>
+<body>
+     <header class="header">
+          <a href="#" class="logo">Portfolio.</a>
+          <nav class="navbar">
+               <a href="#" style="--i:1" class="active">Home</a>
+               <a href="#about" style="--i:2">About</a>
+               <a href="#services " style="--i:4">Services</a>
+               <a href="#Skills" style="--i:3">Skills</a>
+               <a href="#contact " style="--i:4">Contact</a>
+               <a href="file:///F:/my%20projact%201/login.html?# " style="--i:4">login</a>
+          </nav>
+     </header>
+     <section class="home">
+          <div class="home-content">
+               <h3>Hello, It's me</h3>
+               <h1>Sagar Rana</h1>
+               <h3>AND I'm a <span class="text"></span></h3>
+               <p>I'm a web Designer with extensive experience for over 3 years.<br>
+               expertise is to create and website design, Frontend design,</p>
+               <div class="home-sci">
+                    <a href="https://www.facebook.com/profile.php?id=100060596949569&mibextid=ZbWKwL" style="--i:6"><i class='bx bxl-facebook bx-flashing' ></i></a>
+                    <a href="https://www.whatsapp.com/business/" style="--i:7"><i class='bx bxl-whatsapp bx-flashing' ></i></a>
+                    <a href="https://instagram.com/sagar_rj002?utm_source=qr&igshid=MzNlNGNkZWQ4Mg==" style="--i:8"><i class='bx bxl-instagram bx-burst bx-flip-vertical' ></i></a>
+                    <a href="https://www.linkedin.com/in/sagar-sagar-a53341270" style="--i:9"><i class='bx bxl-linkedin bx-tada' ></i></a>
+               </div>
+               <a href="#" class="btn-box">More About Me</a>
+          </div>
+
+     </section>
+          <section class="about" id="about">
+               <div class="about-img">
+                    <img src="rr.jpg" alt="">
+               </div>
+               <div class="about-text">
+                    <h2>About <span>Me</span></h2>
+                    <h4>Full Web Developer!</h4>
+                    <p>  Hello, I'm (sagar) and I work as a web developer. 
+                         I have been working as a web developer for quite some time now.
+                          I believe I am a very ambitious person who loves to work on making the website work well. 
+                         Working on the web is my passion as I love to work on exciting projects.
+                    </p>
+                          <a href="#" class="btn-box">More About Me</a>
+                </div>
+           </section>
+
+          <section>
+               <div class="services" id="services">
+                    <div class="container">
+                         <h1 class="sub-title">My <span>Services</span></h1>
+                         <div class="services-list">
+                              <div>
+                                   <i class='bx bx-code' style='color:#11c9f1'  ></i>
+                                   <h2>UI/UX Design</h2>
+                                   <p> (UI)design or user interface engineering is the design of user 
+                                        interfaces for machines and software, such as computer,home
+                                   appliances,mobile devices,and </p>
+                                         <a href="https://flatironschool.com/blog/what-is-ux-ui-design/" class="read">lern more</a>
+                              </div>
+                              <div>
+                                   <i class='bx bx-crop' style='color:#11c9f1' ></i>
+                                   <h2>UI/UX Design</h2>
+                                   <p> Compared to UX design,UI design is more about the surface AND
+                                        overall look of a design.User interface design is a craft in
+                                        which designers perform an important
+                                   </p>
+                                         <a href="https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwiZv-OioKSBAxUio2YCHRkcAtwYABACGgJzbQ&gclid=EAIaIQobChMImb_joqCkgQMVIqNmAh0ZHALcEAAYAyAAEgKnh_D_BwE&ohost=www.google.com&cid=CAASJeRo1QJchjB1TBq6Aw0jRNIi0W-uq_fJr_STwAG_v_JfTuIi8Jo&sig=AOD64_2OLEczi8S1373uAPSvKWMLOX-VnQ&q&adurl&ved=2ahUKEwj-x9uioKSBAxXy4jgGHTx7DokQ0Qx6BAgKEAE" class="read">lern more</a>
+                              </div>
+                              <div>
+                                   <i class='bx bxl-apple' style='color:#11c9f1' ></i>
+                                   <h2>UI/UX Design</h2>
+                                   <p> (UI)design or user interface engineering is the design of user 
+                                        interfaces for machines and software, such as computer,home
+                                   appliances,mobile devices,and</p>
+                                         <a href="https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwiZv-OioKSBAxUio2YCHRkcAtwYABAAGgJzbQ&gclid=EAIaIQobChMImb_joqCkgQMVIqNmAh0ZHALcEAAYASAAEgLLiPD_BwE&ohost=www.google.com&cid=CAASJeRo1QJchjB1TBq6Aw0jRNIi0W-uq_fJr_STwAG_v_JfTuIi8Jo&sig=AOD64_1hZ5y2ZR9Yie3OVOlMZXajSMC0ZQ&q&adurl&ved=2ahUKEwj-x9uioKSBAxXy4jgGHTx7DokQ0Qx6BAgLEAE" class="read">lern more</a>
+                              </div>
+                         </div>
+                    </div>
+
+               </div>
+          </section>
+                    <h1 class="sub-title"> My<span>Skills</span></h1>
+          <section>
+               <div class="container1" id="Skills">
+                    <h1 class="heading1">Technical Skill</h1>
+                    <div class="Technical-bars">
+                       <div class="bar"><i class='bx bxl-html5' style='color:#c95d2e' ></i>
+                            <div class="info">
+                                 <span>HTML</span>
+                            </div>
+                            <div class="progress-line html">
+                                 <span></span>
+                            </div>
+                       </div>
+                       <div class="bar"><i class='bx bxl-css3' style='color:#147bbc' ></i>
+                            <div class="info">
+                                 <span>CSS</span>
+                            </div>
+                            <div class="progress-line css">
+                                 <span></span>
+                            </div>
+                       </div>
+                    
+                       <div class="bar"><i class='bx bxl-javascript' style='color:#b0bc1e' ></i>
+                            <div class="info">
+                                 <span>Javascript</span>
+                            </div>
+                            <div class="progress-line Javascript">
+                                 <span></span>
+                            </div>
+                       </div>
+                       <div class="bar"><i class='bx bxl-c-plus-plus' style='color:#09c0e8'  ></i>
+                            <div class="info">
+                                 <span>Cpp</span>
+                            </div>
+                            <div class="progress-line cpp">
+                                 <span></span>
+                            </div>
+                        </div>
+                    </div>
+               </div>
+
+                
+          
+               <section class="contact" id="contact">
+                    <div class="form">
+                         <div class="contact-text">
+                              <h2>Contact <span>Me</span></h2>
+                              <h4>Let's work Together</h4>
+                              <p> It takes a lot more than just working together
+                              in collaboration, to create a good self-sustaining team
+                              that is revered by one and all.A good team always finds
+                              </p>
+                         </div>
+                                   <div class="contact-list">
+                                        <li><i class='bx bxs-send' style='color:#13e0e6' ></i>rajputsagar2577@gmail.com</li>
+                                        <li><i class='bx bx-phone bx-tada' style='color:#13e0e6' ></i>+917877402023</li>
+                                   </div>
+                                   <div class="contact-icons">
+                                        <a href="https://www.facebook.com/profile.php?id=100060596949569&mibextid=ZbWKwL"><i class='bx bxl-facebook-circle' style='color:#07c7f1'  ></i></a>
+                                        <a href="https://instagram.com/sagar_rj002?utm_source=qr&igshid=MzNlNGNkZWQ4Mg=="><i class='bx bxl-instagram' style='color:#07c7f1' ></i></a>
+                                        <a href="https://youtube.com/@developer.02?si=RR5yah33BHUVcD07"><i class='bx bxl-youtube' style='color:#07c7f1' ></i></a>
+                                        <a href="https://www.linkedin.com/in/sagar-sagar-a53341270"><i class='bx bxl-linkedin-square' style='color:#07c7f1' ></i></a>
+                                   </div>
+
+                               
+                    </div>
+               </section>
+
+               <div class="lest-text">
+                    <p><marquee behavior="" direction="">Developer with love by Sagar Rana @ 2023</marquee> </p>
+               </div>
+               <a href="" class="top"><i class='bx bx-up-arrow-alt bx-fade-down' style='color:#07c7f1' ></i></a> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+          <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+          <script>
+                    let typed= new Typed(".text",{
+     strings:["Frontehd Developer! " , "YouTuber!" , "Web Developer!"],
+     typeSpeed:100,
+     backSpeed:100,
+     backDelay:1000,
+     loop:true
+});
+          </script>
+</body>
+</html>
